@@ -107,7 +107,7 @@ pre {
 
 blockquote {
   margin: 0.62em 2em 1em;
-  padding: 0.62em 2em 0.2em;
+  padding: 0.62em 2em 0.2em 0;
   color: #555;
 }
 blockquote:before {
