@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ config.sitename }}</title>
-    <link href="{{content_url(config.siteurl, feed.feedurl)}}" rel="self" />
+    <link href="{{content_url(config.siteurl, feed.link)}}" rel="self" />
     <link href="{{content_url(config.siteurl, feed.output)}}" />
     <id>{{ content_url(config.siteurl, feed.output) }}</id>
     {% for post in feed.posts -%}
     <entry>
         <title type="html"><![CDATA[{{ post.title }}]]></title>
-        <author><name>{{ post.author.name }}</name>{%if post.author.website%}<uri>{{post.author.website}}</uri>{%endif%}</author>
-        <link href="{{ post|permalink(True) }}"/>
-        <published>{{ post.date|xmldatetime }}</published>
+        {%- set permalink = permalink_url(post) %}
+        <link href="{{ content_url(config.siteurl, permalink) }}"/>
+        <published>{{ post.pubdate|xmldatetime }}</published>
         <updated>{{ post.updated|xmldatetime }}</updated>
-        <id>{{ post|permalink(True) }}</id>
-        {% for tag in post.tags -%}
-        <category scheme="{{ tag|tag_url(True) }}" term="{{tag}}" label="{{ tag }}" />
-        {% endfor -%}
-        <content type="html" xml:base="{{ site.url }}" xml:lang="en">
-            <![CDATA[ {{ post.content }}
-            {%- if site.showtag -%}
-            <hr><p>Tagged in:
-                    {%- for tag in post.tags %} <a href="{{ tag|tag_url(True) }}">{{tag}}</a>{% endfor -%}
-                </p>
-            {%- endif -%}
-            ]]>
+        <id>{{ content_url(config.siteurl, permalink) }}</id>
+        <content type="html" xml:base="{{ config.siteurl }}" xml:lang="en">
+            <![CDATA[ {{ post.html }}]]>
         </content>
     </entry>
     {%- endfor %}
