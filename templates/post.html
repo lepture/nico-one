@@ -3,8 +3,14 @@
 
 {%- block document %}
 <div class="hentry">
-  <h1 class="entry-title" datetime="{{post.pubdate|xmldatetime}}">{{post.title}}</h1>
+  <h1 class="entry-title">{{post.title}}</h1>
+  {%- if post.description %}
   <blockquote class="entry-description">{{post.description}}</blockquote>
+  {%- endif %}
+  <div class="entry-meta">
+    <time class="updated year" datetime="{{post.pubdate|xmldatetime}}">{{post.pubdate|date('Y')}}</time>
+    <time class="updated date" datetime="{{post.pubdate|xmldatetime}}">{{post.pubdate|date('m/d')}}</time>
+  </div>
   <div class="entry-content">{{post.html}}</div>
 </div>
 {% endblock -%}
