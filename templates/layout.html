@@ -44,6 +44,7 @@
       {%- if config.footer %}
       <p>{{config.footer}}</p>
       {%- endif %}
+      <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
     </div>
     <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="{{static_url('one.js')}}"></script>
     {%- if config.github %}

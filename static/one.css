@@ -340,6 +340,13 @@ a.title-permalink:hover {
   line-height: 1.3;
   padding: 20px 20px 30px;
 }
+.copyright {
+  text-align: center;
+  color: #ddd;
+}
+.copyright a {
+  color: #ddd;
+}
 @media (max-width: 650px) {
   .footer {
     padding-bottom: 10px;
