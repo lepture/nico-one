@@ -216,23 +216,24 @@ hr {
   padding: 3px 10px;
   opacity: 0.9;
 }
+.navigation .menu {
+  text-align: right;
+}
 .navigation .home {
+  float: left;
+  margin-right: 30px;
   font-weight: bold;
   text-transform: uppercase;
   color: #555;
-  color: rgba(222, 222, 222, 0.5);
-}
-.navigation .menu {
-  float: right;
-  text-align: right;
+  color: rgba(222, 222, 222, 0.8);
 }
 .menu a {
   margin-left: 14px;
-  color: #dadada;
+  color: #eee;
 }
 .navigation a:hover {
   text-decoration: none;
-  color: #c2def6;
+  color: #ffc38c;
 }
 .container {
   max-width: 640px;
@@ -259,7 +260,7 @@ hr {
   margin: 40px -30px 30px;
   padding: 14px 30px;
   border-bottom: 1px solid #eee;
-  text-transform: uppercase;
+  color: #d64;
 }
 @media (max-width: 680px) {
   .entry-title, .entry-content h2 {
