@@ -6,6 +6,9 @@
     <meta name="generator" content="{{system.name}} {{system.version}}">
     <meta name="theme" content="{{theme.name}} {{theme.version}}">
     <title>{% block title%}{% endblock %}</title>
+    {%- if config.feedurl %}
+    <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
+    {%- endif %}
     <link rel="stylesheet" href="{{static_url('one.css')}}" />
     <link rel="stylesheet" href="{{static_url('syntax.css')}}" />
     {%- block afterstyle %}{% endblock %}
@@ -44,6 +47,7 @@
       {%- if config.footer %}
       <p>{{config.footer}}</p>
       {%- endif %}
+      <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
     </div>
     <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="{{static_url('one.js')}}"></script>
     {%- if config.github %}
