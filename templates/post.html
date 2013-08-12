@@ -4,12 +4,21 @@
 {%- block document %}
 <div class="hentry">
   <h1 class="entry-title">{{post.title}}</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="{{post.pubdate|xmldatetime}}">{{post.pubdate|date('Y-m-d')}}</time>
-  </div>
-  {%- if post.description %}
-  <blockquote class="entry-description">{{post.description}}</blockquote>
+  {%- if post.meta.description %}
+  <div class="entry-description">{{post.meta.description}}</div>
   {%- endif %}
   <div class="entry-content">{{post.html}}</div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="{{post.pubdate|xmldatetime}}">{{post.pubdate|date('l, M jS, Y')}}</time>
+    {%- if post.tags|length and config.writers|enabled('TagWriter') %}
+    in <span class="entry-tags">
+      {% for tag in post.tags %}
+      <a href="{{ index_url('tag', tag) }}">{{tag}}</a>
+      {% endfor %}
+    </span>
+    {%- endif %}
+  </div>
+
 </div>
 {% endblock -%}

@@ -10,6 +10,7 @@
     <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
     {%- endif %}
     <link rel="stylesheet" href="{{static_url('one.css')}}" />
+    <link rel="stylesheet" href="{{static_url('yue.css')}}" />
     <link rel="stylesheet" href="{{static_url('syntax.css')}}" />
     {%- block afterstyle %}{% endblock %}
     {%- if config.google %}
@@ -29,7 +30,12 @@
   <body>
     <div class="navigation" role="navigation">
       <div class="container">
-        <a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
+        <div class="brand">
+          <a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
+          {%- if config.tagline %}
+          - <span class="tagline">{{ config.tagline }}</span>
+          {%- endif %}
+        </div>
         {%- if config.navigation %}
         <div class="menu">
           {%- for item in config.navigation %}
@@ -39,17 +45,16 @@
         {%- endif %}
       </div>
     </div>
-    <div class="document">
+    <div class="document yue">
       {%- block document %}
       {%- endblock %}
     </div>
     <div class="footer">
       {%- if config.footer %}
-      <p>{{config.footer}}</p>
+      {{config.footer}}
       {%- endif %}
       <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="{{static_url('one.js')}}"></script>
     {%- if config.github %}
     <div class="github"><a class="github-link" href="{{config.github}}">Fork me on GitHub</a></div>
     {%- endif %}

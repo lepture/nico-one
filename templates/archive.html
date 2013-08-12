@@ -3,9 +3,29 @@
 
 {%- block document %}
 <h1 class="entry-title">{{pagination.title}}</h1>
-<ol class="entry-list">
+<div class="entry-list">
+  {%- set year = 0 %}
+
   {%- for item in pagination.items %}
-  <li><a href="{{permalink_url(item)}}">{{item.title}}</a><time datetime="{{item.pubdate|xmldatetime}}">{{item.pubdate|date('Y-m-d')}}</time></li>
+
+  {%- if config.writers|enabled('YearWriter') %}
+  {%- if year != item.pubdate.year %}
+  {%- set year = item.pubdate.year %}
+  <a class="item-year" href="{{ index_url(year) }}">{{ year }}</a>
+  {%- endif %}
+  {%- endif %}
+
+  <div class="item">
+    <h2 class="item-title">
+      <time datetime="{{item.pubdate|xmldatetime}}">{{item.pubdate|date('Y-m-d')}}</time>
+      <a href="{{permalink_url(item)}}">{{item.title}}</a>
+    </h2>
+    {% if item.meta.description %}
+    <div class="item-description">
+      {{ item.meta.description }}
+    </div>
+    {% endif %}
+  </div>
   {%- endfor %}
-</ol>
+</div>
 {% endblock -%}
