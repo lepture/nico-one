@@ -6,7 +6,7 @@ html, body {
 /* layout */
 .navigation {
   font-size: 16px;
-  font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", "SimSun", sans-serif;
+  font-family: "Optima", "Avenir", "Helvetica Neue", sans-serif;
   padding: 20px 10px;
 }
 .navigation a {
@@ -110,15 +110,41 @@ html, body {
   color: #999;
 }
 
-a.title-permalink {
+.document a.title-permalink {
   margin-left: 4px;
   padding: 0 4px;
   text-decoration: none;
-  color: white;
+  color: #f0f0f2;
 }
-a.title-permalink:hover {
+.document a.title-permalink:hover {
   color: #5784bf;
   background-color: #eee;
+}
+
+/* pagination */
+.pagination {
+  position: relative;
+  margin-top: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Optima", "Avenir", "Helvetica Neue", sans-serif;
+}
+.pagination .newer {
+  position: absolute;
+  text-decoration: none;
+  left: 0;
+}
+.pagination .older {
+  position: absolute;
+  text-decoration: none;
+  right: 0;
+}
+.pagination .newer:before {
+  content: "«";
+}
+.pagination .older:after {
+  content: "»"
 }
 
 /* extra widget */
@@ -155,7 +181,7 @@ a.title-permalink:hover {
   }
 }
 
-body a.button {
+.document a.button {
   display: inline-block;
   padding: 1em;
   margin: 0;
@@ -172,7 +198,7 @@ body a.button {
   cursor: pointer;
   vertical-align: middle;
 }
-body a.button:hover {
+.document a.button:hover {
   opacity: 0.9;
   color: white;
 }
