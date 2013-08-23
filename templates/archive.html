@@ -17,8 +17,8 @@
 
   <div class="item" itemscope itemtype="http://schema.org/Article">
     <h2 class="item-title">
-      <time datetime="{{item.pubdate|xmldatetime}}">{{item.pubdate|date('Y-m-d')}}</time>
-      <a itemprop="name" href="{{permalink_url(item)}}" itemprop="dateModified">{{item.title}}</a>
+      <time datetime="{{item.pubdate|xmldatetime}}" itemprop="dateModified">{{item.pubdate|date('Y-m-d')}}</time>
+      <a itemprop="name" href="{{permalink_url(item)}}">{{item.title}}</a>
     </h2>
     {% if item.meta.description %}
     <div class="item-description" itemprop="description">
