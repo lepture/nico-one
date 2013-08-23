@@ -33,6 +33,7 @@ The basic configuration for a blog:
 Additional configuration this theme:
 
 - tagline: A description of your site.
+- touchIcon: Link of Apple Touch Icon.
 - github: Github link, a github fork badge will display.
 - navigation: A array of items of navigation.
 

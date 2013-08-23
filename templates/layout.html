@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="{{system.name}} {{system.version}}">
     <meta name="theme" content="{{theme.name}} {{theme.version}}">
+    {%- if config.touchIcon %}
+    <link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
+    {%- endif %}
     <title>{% block title%}{% endblock %}</title>
     {%- if config.feedurl %}
     <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
