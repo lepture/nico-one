@@ -15,13 +15,13 @@
   {%- endif %}
   {%- endif %}
 
-  <div class="item">
+  <div class="item" itemscope itemtype="http://schema.org/Article">
     <h2 class="item-title">
       <time datetime="{{item.pubdate|xmldatetime}}">{{item.pubdate|date('Y-m-d')}}</time>
-      <a href="{{permalink_url(item)}}">{{item.title}}</a>
+      <a itemprop="name" href="{{permalink_url(item)}}" itemprop="dateModified">{{item.title}}</a>
     </h2>
     {% if item.meta.description %}
-    <div class="item-description">
+    <div class="item-description" itemprop="description">
       {{ item.meta.description }}
     </div>
     {% endif %}

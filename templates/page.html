@@ -2,11 +2,11 @@
 {%- block title %}{{post.title}}{% endblock %}
 
 {%- block document %}
-<div class="hentry">
-  <h1 class="entry-title">{{post.title}}</h1>
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">{{post.title}}</h1>
   {%- if post.description %}
-  <blockquote class="entry-description">{{post.description}}</blockquote>
+  <blockquote class="entry-description" itemprop="description">{{post.description}}</blockquote>
   {%- endif %}
-  <div class="entry-content">{{post.html}}</div>
+  <div class="entry-content" itemprop="articleBody">{{post.html}}</div>
 </div>
 {% endblock -%}
