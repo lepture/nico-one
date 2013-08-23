@@ -8,5 +8,10 @@
   <blockquote class="entry-description" itemprop="description">{{post.description}}</blockquote>
   {%- endif %}
   <div class="entry-content" itemprop="articleBody">{{post.html}}</div>
+  {%- if post.meta.source %}
+  <div class="entry-meta">
+    <a class="source sep" href="{{ post.meta.source }}">{{ post.meta.source }}</a>
+  </div>
+  {%- endif %}
 </div>
 {% endblock -%}

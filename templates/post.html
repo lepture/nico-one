@@ -18,6 +18,9 @@
       {% endfor %}
     </span>
     {%- endif %}
+    {%- if post.meta.source %}
+    <a class="source sep" href="{{ post.meta.source }}">{{ post.meta.source }}</a>
+    {%- endif %}
   </div>
   {%- if config.disqus %}
   {%- include "_disqus.html" %}
