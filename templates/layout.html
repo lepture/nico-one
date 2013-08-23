@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="{{system.name}} {{system.version}}">
     <meta name="theme" content="{{theme.name}} {{theme.version}}">
+    <title>{% block title%}{% endblock %}</title>
     {%- if config.touchIcon %}
     <link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
     {%- endif %}
-    <title>{% block title%}{% endblock %}</title>
     {%- if config.feedurl %}
     <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
     {%- endif %}
@@ -29,7 +29,7 @@
     {%- endif %}
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
         <div class="brand">
           <a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
@@ -38,7 +38,7 @@
           {%- endif %}
         </div>
         {%- if config.navigation %}
-        <div class="menu">
+        <div class="menu" role="navigation">
           {%- for item in config.navigation %}
           <a href="{{content_url(item.link)}}">{{item.title}}</a>
           {%- endfor %}

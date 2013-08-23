@@ -292,21 +292,21 @@ html, body {
 }
 
 /* layout */
-.navigation {
+.header {
   font-size: 16px;
   font-family: "Optima", "Avenir", "Helvetica Neue", sans-serif;
   padding: 20px 10px;
 }
-.navigation a {
+.header a {
   color: #323233;
 }
-.navigation a:hover {
+.header a:hover {
   opacity: 0.6;
 }
-.navigation .menu {
+.header .menu {
   text-align: right;
 }
-.navigation .brand {
+.header .brand {
   float: left;
   margin-right: 30px;
   text-transform: uppercase;
