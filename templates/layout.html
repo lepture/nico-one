@@ -47,12 +47,11 @@
       {%- block document %}
       {%- endblock %}
     </div>
+    {%- if config.footer %}
     <div class="footer">
-      {%- if config.footer %}
       {{config.footer}}
-      {%- endif %}
-      <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
     </div>
+    {%- endif %}
     {%- if config.github %}
     <div class="github"><a class="github-link" href="{{config.github}}">Fork me on GitHub</a></div>
     {%- endif %}

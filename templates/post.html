@@ -19,6 +19,11 @@
     </span>
     {%- endif %}
   </div>
-
+  {%- if config.disqus %}
+  {%- include "_disqus.html" %}
+  {%- endif %}
+  {%- if config.duoshuo %}
+  {%- include "_duoshuo.html" %}
+  {%- endif %}
 </div>
 {% endblock -%}
