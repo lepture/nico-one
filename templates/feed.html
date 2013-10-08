@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ config.sitename }}</title>
-    <link href="{{content_url(config.siteurl, feed.link)}}" rel="self" />
-    <link href="{{content_url(config.siteurl, feed.filepath)}}" />
+    <link href="{{content_url(config.siteurl, feed.filepath)}}" rel="self" />
+    <link href="{{config.siteurl}}" />
     <id>{{ content_url(config.siteurl, feed.filepath) }}</id>
     {% for post in feed.posts -%}
     <entry>
