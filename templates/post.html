@@ -28,5 +28,8 @@
   {%- if config.duoshuo %}
   {%- include "_duoshuo.html" %}
   {%- endif %}
+  {%- if config.githubIssues %}
+  {%- include "_comment.html" %}
+  {%- endif %}
 </div>
 {% endblock -%}

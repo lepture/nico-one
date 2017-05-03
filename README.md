@@ -8,7 +8,7 @@ This theme requires nico 0.4.6+ now.
 
 The basic configuration for a blog:
 
-```
+```json
 {
     "source": "content",
     "output": "_site",
@@ -40,7 +40,7 @@ Additional configuration this theme:
 
 Navigation example:
 
-```
+```json
 {
     "navigation": [
         {"title": "Life", "link": "/life/"},
@@ -55,7 +55,7 @@ Comment is available for posts. This theme support disqus and duoshuo.
 
 Configure a disqus short name:
 
-```
+```json
 {
     "disqus": "short name"
 }
@@ -63,8 +63,16 @@ Configure a disqus short name:
 
 If you prefer duoshuo:
 
-```
+```json
 {
     "duoshuo": "short name"
+}
+```
+
+Using Github for Comments:
+
+```json
+{
+    "githubIssues": "Your github issues url"
 }
 ```

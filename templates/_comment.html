@@ -1,0 +1,66 @@
+<div class="github-comments"></div>
+<script type="text/javascript">
+  (function() {
+    var a = document.createElement('a'),
+      comments = document.getElementsByClassName('github-comments')[0],
+      api = 'https://api.github.com/repos',
+      issue = '{{ post.issue }}',
+      issueUrl;
+
+    a.href = '{{ config.githubIssues }}';
+
+    if (!issue) return false;
+    var matchs = issue.match(/(https?:\/\/github.com\/[^\s<>"]+)/);
+    if (matchs && matchs.length) {
+      // it may be a github issue url
+      api += matchs[0].replace(/^https?:\/\/github.com/, '') + '/comments';
+      issueUrl = matchs[0];
+    } else if (!isNaN(+ issue)) {
+      api += a.pathname + '/' + issue + '/comments';
+      issueUrl = a.href + '/' + issue;
+    } else {
+      throw Error('Invalid GitHub issue id or url');
+    }
+
+    if (window.fetch) {
+      // use fetch first
+      fetch(api, {
+        headers: new Headers({
+          'Accept': 'application/vnd.github.v3.html+json',
+          'Content-Type': 'application/json'
+        }),
+        method: 'GET'
+      }).then((res) => {
+        if (res.status == 200) return res.json();
+        var error = new Error('HTTP Exception[GET]');
+        error.status = res.status;
+        error.statusText = res.statusText;
+        error.url = res.url;
+        throw error;
+      }).then((json) => {
+          comments.insertAdjacentHTML('afterbegin',
+            '<h3>GitHub Comments</h3><p>Visit the <a href="' +
+            issueUrl +
+            '">GitHub Issue</a> to comment on this post.</p>'
+          );
+          json.forEach(function(comment){
+            var date = new Date(comment.created_at);
+            var c = '<div class="github-comment">' +
+                '<img src="' + comment.user.avatar_url + '" width="36"> ' +
+                '<a href="' + comment.user.html_url + '">' + comment.user.login + '</a>' +
+                ' posted at ' +
+                '<time>' + date.toUTCString() + '</time>' +
+                '<br>' +
+                comment.body_html +
+                '</div>';
+            comments.insertAdjacentHTML('beforeend', c);
+          });
+      }).catch((err) => {
+        comments.insertAdjacentHTML('afterbegin', '<h3>GitHub Comments</h3>' +
+          '<p>Comments are not open for this post yet.</p>');
+      });
+    } else {
+      // back down to XHR
+    }
+  })();
+</script>
