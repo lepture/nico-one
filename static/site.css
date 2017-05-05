@@ -184,6 +184,16 @@ html, body {
   }
 }
 
+.github-comment {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  color: #565655;
+  font-size: smaller;
+}
+.github-comment > img {
+  vertical-align: middle;
+}
+
 .document a.button {
   display: inline-block;
   padding: 1em;
